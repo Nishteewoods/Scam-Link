@@ -63,7 +63,7 @@ button:hover {
 .no {
   background-color: #f2f2f2;
   border: 1px solid #ccc;
-  position: relative;
+  position: absolute; /* required for playful movement */
 }
 
 .hidden {
@@ -86,7 +86,7 @@ button:hover {
 }
 
 .bounce {
-  animation: bounce 0.5s ease;
+  animation: bounce 0.3s ease;
 }
 
 /* Confetti styling */
@@ -142,5 +142,18 @@ button:hover {
     transform: translateY(-100vh) rotate(0deg) scale(0.5); /* float up */
     opacity: 0;
   }
+}
+
+/* Yes message styling */
+#yesMessage h2 {
+  font-size: 40px;
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+#yesMessage p {
+  font-size: 24px;
+  color: #ff3366;
+  font-weight: bold;
 }
 
