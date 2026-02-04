@@ -5,12 +5,16 @@ const heartsContainer = document.getElementById("hearts-container");
 
 let hoverCount = 0;
 
-// Move No button randomly with bounce
+// Move No button randomly but always inside window bounds
 noBtn.addEventListener("mouseover", () => {
   hoverCount++;
 
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 20);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 20);
+  // Calculate max allowed position so button stays fully visible
+  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+  const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
 
   noBtn.style.position = "absolute";
   noBtn.style.left = x + "px";
