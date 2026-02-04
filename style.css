@@ -28,13 +28,6 @@ body {
   z-index: 1;
 }
 
-/* Teddy image */
-#teddy {
-  width: 120px;
-  margin: 0 auto 20px auto; /* Teddy above question */
-  display: block;
-}
-
 h1 {
   font-size: 26px;
   margin-bottom: 15px;
@@ -81,12 +74,6 @@ button:hover {
   margin-bottom: 15px;
   font-size: 16px;
   color: #555;
-}
-
-#yayGif {
-  width: 250px;
-  display: block;
-  margin: 20px auto 0 auto; /* Appears below question/buttons */
 }
 
 /* Bounce animation for No button */
@@ -156,3 +143,5 @@ button:hover {
     opacity: 0;
   }
 }
+
+
