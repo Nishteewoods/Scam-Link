@@ -45,6 +45,7 @@ button {
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   position: relative;
+  transition: left 0.25s ease, top 0.25s ease;
 }
 
 .hidden {
@@ -56,3 +57,4 @@ button {
   font-size: 14px;
   color: #555;
 }
+
