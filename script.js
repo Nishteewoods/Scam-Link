@@ -1,6 +1,5 @@
 const noBtn = document.getElementById("noBtn");
 const shyText = document.getElementById("shyText");
-const yayGif = document.getElementById("yayGif");
 const confettiContainer = document.getElementById("confetti-container");
 const heartsContainer = document.getElementById("hearts-container");
 
@@ -27,17 +26,16 @@ noBtn.addEventListener("mouseover", () => {
   }
 });
 
-// Show GIF + confetti on Yes
-function yesClicked() {
+// Show confetti on Yes
+document.querySelector(".yes").addEventListener("click", () => {
   document.querySelector(".buttons").classList.add("hidden");
   shyText.classList.add("hidden");
-  yayGif.classList.remove("hidden");
 
   // Generate confetti
   for (let i = 0; i < 100; i++) {
     createConfetti();
   }
-}
+});
 
 // Confetti functions
 function createConfetti() {
@@ -80,26 +78,22 @@ function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
 
-  // Random horizontal position across full width
   heart.style.left = Math.random() * window.innerWidth + "px";
 
-  // Random size between 10px and 25px
   const size = 10 + Math.random() * 15;
   heart.style.width = size + "px";
   heart.style.height = size + "px";
   heart.style.borderRadius = size / 2 + "px";
 
-  // Random speed between 4s and 7s
   heart.style.animationDuration = (4 + Math.random() * 3) + "s";
 
   heartsContainer.appendChild(heart);
 
-  // Remove heart after animation ends
   setTimeout(() => {
     heart.remove();
   }, parseFloat(heart.style.animationDuration) * 1000);
 }
 
 // Create hearts continuously
-setInterval(createHeart, 300); // spawn every 0.3s for full screen coverage
+setInterval(createHeart, 300);
 
