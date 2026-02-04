@@ -7,14 +7,25 @@
 
 body {
   height: 100vh;
-  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -27,12 +38,19 @@ h1 {
   display: flex;
   gap: 20px;
   justify-content: center;
+  position: relative;
 }
 
 button {
   padding: 10px 22px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .yes {
@@ -45,7 +63,6 @@ button {
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   position: relative;
-  transition: left 0.25s ease, top 0.25s ease;
 }
 
 .hidden {
@@ -54,7 +71,132 @@ button {
 
 #shyText {
   margin-bottom: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
+}
+
+#yayGif {
+  margin-top: 20px;
+  width: 200px;
+}
+
+/* Bounce animation for No button */
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-10px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.bounce {
+  animation: bounce 0.5s ease;
+}
+
+/* Confetti styling */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  opacity: 0.8;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* Hearts background animation */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  opacity: 0.7;
+  animation: floatHeart linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(45deg) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-800px) rotate(45deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Teddy + heart */
+#teddy-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#teddy {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+#teddy-heart {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 0 0 50% 50%;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+#teddy-heart::before,
+#teddy-heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+#teddy-heart::before {
+  top: -15px;
+  left: 0;
+}
+
+#teddy-heart::after {
+  left: 15px;
+  top: 0;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) rotate(45deg) scale(1); }
+  50% { transform: translateX(-50%) rotate(45deg) scale(1.2); }
+  100% { transform: translateX(-50%) rotate(45deg) scale(1); }
 }
 
