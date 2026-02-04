@@ -27,7 +27,7 @@ noBtn.addEventListener("mouseover", () => {
 });
 
 // Show confetti on Yes
-document.querySelector(".yes").addEventListener("click", () => {
+document.getElementById("yesBtn").addEventListener("click", () => {
   document.querySelector(".buttons").classList.add("hidden");
   shyText.classList.add("hidden");
 
