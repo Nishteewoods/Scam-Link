@@ -79,17 +79,27 @@ function randomColor() {
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
+
+  // Random horizontal position across full width
   heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.width = 10 + Math.random() * 20 + "px";
-  heart.style.height = heart.style.width;
-  heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+
+  // Random size between 10px and 25px
+  const size = 10 + Math.random() * 15;
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
+  heart.style.borderRadius = size / 2 + "px";
+
+  // Random speed between 4s and 7s
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
   heartsContainer.appendChild(heart);
 
+  // Remove heart after animation ends
   setTimeout(() => {
     heart.remove();
-  }, 7000);
+  }, parseFloat(heart.style.animationDuration) * 1000);
 }
 
 // Create hearts continuously
-setInterval(createHeart, 500);
+setInterval(createHeart, 300); // spawn every 0.3s for full screen coverage
 
